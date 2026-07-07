@@ -1,0 +1,18 @@
+# Ignorar carpetas de datos y datasets pesados
+data/
+dataset/
+dataset - Programacion para IA/
+lfw_funneled/
+*.zip
+*.rar
+
+# Ignorar archivos generados por el entrenamiento (modelos pesados)
+*.yml
+*.xml
+!04-face-detection/haarcascade_frontalface_default.xml
+
+# Python basura del sistema
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/
