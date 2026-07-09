@@ -2,16 +2,40 @@ import cv2
 
 #CArgamos todas las 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-recognizer.read("trainer/trainer.yml")
-cascadePath = "haarcascade_frontalface_default.xml"
+recognizer.read('C:\\Users\\isaac\\OneDrive\\Escritorio\\InteligenciaArtificial_Jesus\\learning-computer-vision\\07-face-recognition\\trainer\\trainer.yml')
+cascadePath = "C:\\Users\\isaac\\OneDrive\\Escritorio\\InteligenciaArtificial_Jesus\\learning-computer-vision\\07-face-recognition\\haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascadePath)
 
 #Vamos a definir las variables pricipales del sistema 
 font = cv2.FONT_HERSHEY_COMPLEX
 id = 0
-names= {
+names = [
+    "Tania",
+    "Lu",
+    "Beto",
+    "Sher",
+    "Alan",
+    "Claret",
+    "Erik",
+    "Brandon Daniel",
+    "Barbara",
+    "Choyas",
+    "Fatima",
+    "Sigi",
+    "Angel",
+    "Angela",
+    "Francisco",
+    "Benja",
+    "Acero",
+    "Nash",
+    "Vale",
+    "Mafer",
+    "Emilio",
+    "Jorge",
+    "Paul",
+    "Sam"
+]
 
-}
 cap = cv2.VideoCapture(0)
 
 #Inicializamos el ciclo infinito para analizar las imagenes 

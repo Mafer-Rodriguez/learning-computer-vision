@@ -18,9 +18,9 @@ from PIL import Image
 #Despues vamos a crear la instancia de nuetro nuevo modelo 
 #Luego vamos a inicializar el detector de rostros 
 
-PATH = 'Dataset - Programacion para IA' #ruta donde tenemos guardadas nuestras imagenes
+PATH = 'C:\\Users\\isaac\\OneDrive\\Escritorio\\InteligenciaArtificial_Jesus\\learning-computer-vision\\data\\dataset - programacion para IA\\Dataset' #ruta donde tenemos guardadas nuestras imagenes
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-detector = cv2.CascadeClassifier("cascades/haarcascade_frontalface_default.xml")
+detector = cv2.CascadeClassifier("C:\\Users\\isaac\\OneDrive\\Escritorio\\InteligenciaArtificial_Jesus\\learning-computer-vision\\06-model-trainer\\haarcascade_frontalface_default.xml")
 
 #Hacer un listado de las imagenes guardadas en el path
 #despues recorrer cada imagen, convertirla a escala de grises, y luego detectar el rostro en la imagen, para finalmente agregar el rostro detectado a una lista de rostros, y el ID del usuario a una lista de IDs.
@@ -35,9 +35,9 @@ def get_imagenes_and_labels(path):
     #la primera es :
     #investigar ruta absoluta 
     # en esta parte se esta colocando PATH en mayusculas, porque recordemos que es una constante 
-    images_paths = [os.path.join(PATH, image_path) for image_path in os.listdir(path)] #obtenemos el path de cada imagen en la carpeta dataset
+    images_paths = [os.path.join(path , image_path) for image_path in os.listdir(path)] #obtenemos el path de cada imagen en la carpeta dataset
     sample_images = []
-    labels_ids = []
+    labels_ids = [] 
 
     #A continuacion realizaremos un ciclo, que recorra cada imagen guardada en la 
     #variable "images_path" y accederemos a cada imagen con pillow y cambiaremos su 
@@ -49,7 +49,7 @@ def get_imagenes_and_labels(path):
         image_matrix = np.array(PIL_image, 'uint8')
 
         #Ahora vamos a extrar el ID de las imagenes 
-        id = int(os.path.split(ip)[1])
+        id = int(os.path.split(ip)[1].split("_")[1])
         faces = detector.detectMultiScale(
             image_matrix,
             scaleFactor=1.2,
@@ -72,8 +72,6 @@ faces, labels =get_imagenes_and_labels(PATH)
     
 recognizer.train(faces, np.array(labels))
 #escribir el archivo en nuestro falder
-recognizer.write('trainer/trainer.yml')
+recognizer.write('C:\\Users\\isaac\\OneDrive\\Escritorio\\InteligenciaArtificial_Jesus\\learning-computer-vision\\06-model-trainer\\trainer\\trainer.yml')
 #Mensaje de termino 
 print(f"\n [INFO] {len(np.unique(labels))}")#Rostros almacenados.Termino el programa.
-        
-
