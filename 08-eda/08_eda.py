@@ -69,9 +69,7 @@ for folder in os.listdir(DATASET):
 
     # Guarda cuántas imágenes tiene cada persona
     images_per_person[folder] = count_person
-
-
-
+    
 # How many images are there?
 print("Total images:", total_images)
 
